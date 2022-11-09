@@ -3,9 +3,9 @@ provider "google" {
   zone="us-central1-c"
 }
 
-resource "google_project" "giridhar_project-3" {
-  name       = "giridhar-project-3"
-  project_id = "giridhar-project-3"
+resource "google_project" "giridhar_project-4" {
+  name       = "giridhar-project-4"
+  project_id = "giridhar-project-4"
 
   org_id = "${var.gsuite_org_id}"
   billing_account = "${var.billing_account_id}"
