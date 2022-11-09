@@ -31,11 +31,11 @@ resource "google_project" "test_project" {
 
 
 
-provider "google" {
-    project ="giridhar-project-1"
-    region="us-central1"
-    zone="us-central1-c"
-}
+# provider "google" {
+#     project ="giridhar-project-1"
+#     region="us-central1"
+#     zone="us-central1-c"
+# }
 
 # # Create a single Compute Engine instance
 # resource "google_compute_instance" "vm_instance" {
