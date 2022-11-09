@@ -4,7 +4,7 @@ provider "google" {
 
 resource "google_project" "test_project" {
   name       = "test-project"
-  project_id = "test-project-1"
+  project_id = "test-project-2"
 
   org_id = "${var.gsuite_org_id}"
 #   billing_account = "${var.billing_account_id}"
