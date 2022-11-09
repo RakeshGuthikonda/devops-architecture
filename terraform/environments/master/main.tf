@@ -1,7 +1,7 @@
-provider "google" {
-  region      = "${var.region}"
-  zone="us-central1-c"
-}
+# provider "google" {
+#   region      = "${var.region}"
+#   zone="us-central1-c"
+# }
 
 resource "google_project" "giridhar_project-3" {
   name       = "giridhar-project-3"
@@ -12,7 +12,7 @@ resource "google_project" "giridhar_project-3" {
 }
 
 provider "google" {
-  project = "giridhar-project-1"
+  project = "${google_project.giridhar_project-3.project_id}"
   region      = "${var.region}"
   zone="us-central1-c"
 }
