@@ -11,6 +11,11 @@ resource "google_project" "giridhar_project-3" {
   billing_account = "${var.billing_account_id}"
 }
 
+provider "google" {
+  project = "giridhar-project-1"
+  region      = "${var.region}"
+  zone="us-central1-c"
+}
 
 
 # Create a single Compute Engine instance
