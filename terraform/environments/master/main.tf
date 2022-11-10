@@ -12,7 +12,7 @@ resource "google_project" "giridhar_project-10" {
 }
 
 
-resource "google_project_service" "project" {
+resource "google_project_services" "project" {
   project = "${google_project.giridhar_project-10.project_id}"
   services = ["iam.googleapis.com", "cloudresourcemanager.googleapis.com","compute.googleapis.com"]
   disable_dependent_services = true
