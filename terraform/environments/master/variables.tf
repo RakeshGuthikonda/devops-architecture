@@ -1,5 +1,5 @@
 variable "project_id" {
-    default = "giridhar-project-1"
+    default = "giridhar-project-2"
 }
 variable "region" {
     default = "us-central1"
