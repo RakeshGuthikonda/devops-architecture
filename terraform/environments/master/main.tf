@@ -11,12 +11,12 @@ provider "google"{
     zone = var.zone
 }
 module "subnetwork"{
-    source = "/modules/global"
+    source = "./modules/global"
 }
 module "vpc"{
-    source = "/modules/global"
+    source = "./modules/global"
 }
 module "vm-instance"{
-    source = "/modules/global"
+    source = "./modules/global"
 
 }
