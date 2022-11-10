@@ -1,10 +1,13 @@
+variable "project_id" {
+    default = "giridhar-project-1"
+}
 variable "region" {
-  default = "us-central1"
+    default = "us-central1"
+}
+variable "zone" {
+    default = "us-central1-c"
 }
 
-variable "billing_account_user" {}
-variable "billing_folder_id" {}
-variable "billing_account_id" {}
-
-variable "gsuite_user" {}
-variable "gsuite_org_id" {}
+variable "subnet_name"{
+    default = "subnet-01"
+}
