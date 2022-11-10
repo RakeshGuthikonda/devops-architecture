@@ -3,16 +3,16 @@ provider "google" {
   zone="us-central1-c"
 }
 
-resource "google_project" "giridhar_project-7" {
-  name       = "giridhar-project-7"
-  project_id = "giridhar-project-7"
+resource "google_project" "giridhar_project-8" {
+  name       = "giridhar-project-8"
+  project_id = "giridhar-project-8"
 
   org_id = "${var.gsuite_org_id}"
   billing_account = "${var.billing_account_id}"
 }
 
 # provider "google" {
-#   project = "${google_project.giridhar_project-7.project_id}"
+#   project = "${google_project.giridhar_project-8.project_id}"
 #   region      = "${var.region}"
 #   zone="us-central1-c"
 # }
@@ -20,7 +20,7 @@ resource "google_project" "giridhar_project-7" {
 
 # Create a single Compute Engine instance
 resource "google_compute_instance" "vm_instance" {
-  project = "${google_project.giridhar_project-7.project_id}"
+  project = "${google_project.giridhar_project-8.project_id}"
   name         = "terraform-instance"
   machine_type = "e2-micro"
   zone         = "us-central1-c"
