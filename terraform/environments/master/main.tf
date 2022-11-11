@@ -10,6 +10,21 @@ provider "google"{
     region = var.region
     zone = var.zone
 }
+
+# resource "google_project" "test_project" {
+#   name       = "test-project"
+#   project_id = var.project_id
+
+#   org_id = "${var.gsuite_org_id}"
+#   billing_account = "${var.billing_account_id}"
+# }
+
+resource "google_project_services" "project" {
+  project = var.project_id
+  services   = ["iam.googleapis.com", "compute.googleapis.com"]
+}
+
+
 module "subnetwork"{
     source = "./modules/global"
 }
