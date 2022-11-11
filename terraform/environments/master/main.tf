@@ -40,21 +40,21 @@ resource "time_sleep" "wait_30_seconds" {
   create_duration = "30s"
 }
 
-# This resource will create (at least) 30 seconds after null_resource.previous
-resource "null_resource" "next" {
-  depends_on = [time_sleep.wait_30_seconds]
-}
+
 
 
 
 
 module "subnetwork"{
     source = "./modules/global"
+    depends_on = [time_sleep.wait_30_seconds]
 }
 module "vpc"{
     source = "./modules/global"
+    depends_on = [time_sleep.wait_30_seconds]
 }
 module "vm-instance"{
     source = "./modules/global"
+     depends_on = [time_sleep.wait_30_seconds]
 
 }
