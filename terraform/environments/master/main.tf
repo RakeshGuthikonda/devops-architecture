@@ -29,7 +29,7 @@ resource "google_project_service" "compute" {
 
 resource "google_project_service" "firewall" {
   project = var.project_id
-  service   = "vpcaccess.googleapis.com"
+  service   = "iap.googleapis.com"
 
 
   disable_dependent_services = false
