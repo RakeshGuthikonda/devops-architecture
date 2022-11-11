@@ -55,15 +55,15 @@ resource "google_project_service" "firewall" {
 
 module "subnetwork"{
     source = "./modules/global"
-    depends_on = [google_project_service.firewall,google_project_service.compute,google_project_service.iap]
+    depends_on = [google_project_service.compute,google_project_service.iap]
 }
 module "vpc"{
     source = "./modules/global"
-    depends_on = [google_project_service.firewall,google_project_service.compute,google_project_service.iap]
+    depends_on = [google_project_service.compute,google_project_service.iap]
 }
     
 module "vm-instance"{
     source = "./modules/global"
-     depends_on = [google_project_service.compute,google_project_service.firewall,google_project_service.iap]
+     depends_on = [google_project_service.compute,google_project_service.iap]
 
 }
