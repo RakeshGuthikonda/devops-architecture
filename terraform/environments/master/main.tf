@@ -27,9 +27,18 @@ resource "google_project_service" "compute" {
 #   depends_on = [google_project.test_project17]
 }
 
-resource "google_project_service" "firewall" {
+resource "google_project_service" "iap" {
   project = var.project_id
   service   = "iap.googleapis.com"
+
+
+  disable_dependent_services = false
+#   depends_on = [google_project.test_project17]
+}
+
+resource "google_project_service" "firewall" {
+  project = var.project_id
+  service   = "vpcaccess.googleapis.com"
 
 
   disable_dependent_services = false
@@ -46,15 +55,15 @@ resource "google_project_service" "firewall" {
 
 module "subnetwork"{
     source = "./modules/global"
-    depends_on = [google_project_service.firewall,google_project_service.compute]
+    depends_on = [google_project_service.firewall,google_project_service.compute,google_project_service.iap]
 }
 module "vpc"{
     source = "./modules/global"
-    depends_on = [google_project_service.firewall,google_project_service.compute]
+    depends_on = [google_project_service.firewall,google_project_service.compute,google_project_service.iap]
 }
     
 module "vm-instance"{
     source = "./modules/global"
-     depends_on = [google_project_service.compute,google_project_service.firewall]
+     depends_on = [google_project_service.compute,google_project_service.firewall,google_project_service.iap]
 
 }
