@@ -28,34 +28,30 @@ resource "google_project_service" "project" {
 #   }
 
   disable_dependent_services = true
-  depends_on = [time_sleep.wait_30_seconds]
-}
-
-
-
-resource "null_resource" "previous" {}
-
-resource "time_sleep" "wait_30_seconds" {
-  depends_on = [null_resource.previous]
-
-  create_duration = "2m"
 }
 
 
 
 
+# resource "time_sleep" "wait_30_seconds" {
+#   depends_on = [null_resource.previous]
+
+#   create_duration = "2m"
+# }
 
 
-module "subnetwork"{
-    source = "./modules/global"
-    depends_on = [time_sleep.wait_30_seconds]
-}
-module "vpc"{
-    source = "./modules/global"
-    depends_on = [time_sleep.wait_30_seconds]
-}
+
+
+
+
+# module "subnetwork"{
+#     source = "./modules/global"
+# }
+# module "vpc"{
+#     source = "./modules/global"
+# }
 module "vm-instance"{
     source = "./modules/global"
-     depends_on = [time_sleep.wait_30_seconds]
+     depends_on = [google_project_service.project]
 
 }
