@@ -22,13 +22,30 @@ provider "google"{
 resource "google_project_service" "project" {
   project = var.project_id
   service   = "compute.googleapis.com"
-    timeouts {
-    create = "30m"
-    update = "40m"
-  }
+#     timeouts {
+#     create = "30m"
+#     update = "40m"
+#   }
 
   disable_dependent_services = true
 }
+
+
+
+resource "null_resource" "previous" {}
+
+resource "time_sleep" "wait_30_seconds" {
+  depends_on = [null_resource.previous]
+
+  create_duration = "30s"
+}
+
+# This resource will create (at least) 30 seconds after null_resource.previous
+resource "null_resource" "next" {
+  depends_on = [time_sleep.wait_30_seconds]
+}
+
+
 
 
 module "subnetwork"{
