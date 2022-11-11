@@ -28,6 +28,7 @@ resource "google_project_service" "project" {
 #   }
 
   disable_dependent_services = true
+  depends_on = [time_sleep.wait_30_seconds]
 }
 
 
