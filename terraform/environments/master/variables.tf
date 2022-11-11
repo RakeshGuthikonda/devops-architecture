@@ -11,3 +11,6 @@ variable "zone" {
 variable "subnet_name"{
     default = "subnet-01"
 }
+
+variable "billing_account_id" {}
+variable "gsuite_org_id" {}
