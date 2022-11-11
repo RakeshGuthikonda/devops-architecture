@@ -22,6 +22,12 @@ provider "google"{
 resource "google_project_service" "project" {
   project = var.project_id
   service   = "compute.googleapis.com"
+#     timeouts {
+#     create = "5m"
+#     update = "5m"
+#   }
+
+  disable_dependent_services = true
 }
 
 
