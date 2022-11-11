@@ -25,13 +25,13 @@ resource "google_project_service" "project" {
 }
 
 
-module "subnetwork"{
-    source = "./modules/global"
-}
-module "vpc"{
-    source = "./modules/global"
-}
-module "vm-instance"{
-    source = "./modules/global"
+# module "subnetwork"{
+#     source = "./modules/global"
+# }
+# module "vpc"{
+#     source = "./modules/global"
+# }
+# module "vm-instance"{
+#     source = "./modules/global"
 
-}
+# }
