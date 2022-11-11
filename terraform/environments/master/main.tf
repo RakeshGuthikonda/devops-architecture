@@ -11,8 +11,8 @@ provider "google"{
     zone = var.zone
 }
 
-resource "google_project" "test_project" {
-  name       = "test-project"
+resource "google_project" "test_project1" {
+  name       = "test-project1"
   project_id = var.project_id
 
   org_id = "${var.gsuite_org_id}"
@@ -28,6 +28,7 @@ resource "google_project_service" "project" {
 #   }
 
   disable_dependent_services = false
+  depends_on = [google_project.test_project1]
 }
 
 
