@@ -19,9 +19,9 @@ provider "google"{
 #   billing_account = "${var.billing_account_id}"
 # }
 
-resource "google_project_services" "project" {
+resource "google_project_service" "project" {
   project = var.project_id
-  services   = ["iam.googleapis.com", "compute.googleapis.com"]
+  service   = "compute.googleapis.com"
 }
 
 
